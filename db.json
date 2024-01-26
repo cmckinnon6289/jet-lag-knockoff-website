@@ -3,14 +3,16 @@
         {
             "type": 0,
             "tokens": 1,
-            "can-active": true,
+            "canActive": true,
+            "canVeto": true,
             "name": "Your city!",
             "description": "Report 3 safety concerns (potholes, broken traffic lights, etc) to 331. You must report each concern in separate calls. Alternatively, remove 10 pieces of litter from  a park. The litter does not all have to be from the same park."
         },
         {
             "type": 1,
             "tokens": 0,
-            "can-active": false,
+            "canActive": false,
+            "canVeto": false,
             "name": "Blackout",
             "description": "Neither teammate may use a phone to research public transit routes for the remainder of the game. This card cannot be vetoed."
         }
