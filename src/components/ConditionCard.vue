@@ -1,22 +1,31 @@
 <template>
     <div class="card">
-        <h1 class="title">{{ card.name }}</h1>
+        <h1 v-if="card.type === 1" class="type" style="color: purple;">CURSE</h1>
+        <h1 v-else class="type" style="color: orange">CHALLENGE</h1>
+        <h2 class="card-title">{{ card.name }}</h2>
         <p>{{ card.description }}</p>
-        <button v-if="card.canVeto" class="button is-danger">Veto</button>
+        <CardModal :card="card" />
     </div>
 </template>
 
 <script setup>
+import CardModal from "@/components/CardModal.vue"
+
 defineProps({
     card: {
         type: Object,
         required: true
     }
 })
+
+
 </script>
 
 <style scoped>
-.title {
+.type {
+    font-weight: bold;
+}
+.card-title {
     font-weight: bold;
 }
 .card {
