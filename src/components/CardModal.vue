@@ -2,20 +2,15 @@
     <div class="modal" :id="'c'+card._id">
         <div class="modal-background"></div>
         <div class="modal-content">
+            <span><b>For card: </b>{{ card.name }}</span>
             <p>Choose an action below.</p>
             <ClaimButton v-if="card.canActive" />
             <VetoButton v-if="card.canVeto" />
         </div>
-        <button class="modal-close is-large" aria-label="close" @click="handleModal(`c${card._id}`)"></button>
     </div>
 </template>
 
 <script setup>
-function handleModal(id) {
-    let modal = document.querySelector(`#${String(id)}`);
-    modal.classList.toggle("is-active")
-}
-
 defineProps({
     card: {
         type: Object,
@@ -30,5 +25,8 @@ import VetoButton from "@/components/buttons/VetoButton.vue"
 <style>
 .modal-content{
     color: white;
+}
+.modal {
+    padding: 32px;
 }
 </style>
