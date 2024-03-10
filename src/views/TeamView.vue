@@ -9,7 +9,7 @@ import axios from 'axios';
 const deck = ref(null);
 
 onMounted(() => {
-    axios.get("https://my-json-server.typicode.com/cmckinnon6289/jet-lag-knockoff-website/cards")
+    axios.get("https://jet-lag-toronto-knockoff-api.onrender.com/api/internal/assets/cards")
     .then((response) => {
         deck.value = response.data;
     })
