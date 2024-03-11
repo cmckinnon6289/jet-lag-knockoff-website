@@ -1,19 +1,27 @@
 <script setup>
 import { RouterView } from 'vue-router'
+
+function handleModal(id) {
+    let modal = document.querySelector(`#${String(id)}`);
+    modal.classList.toggle("is-active")
+}
 </script>
 
 <template>
   <div class="layout">
     <nav class="navbar">
       <div class="navbar-brand">
-        <a class="navbar-item" href="#">
-          <b>Jet Lag: In Toronto</b>
-        </a>
+        <router-link class="navbar-item link" to="/"><b>Jet Lag: In Toronto</b></router-link>
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <router-link class="link navbar-item" to="/shop">Shop</router-link>
+        </div>
       </div>
     </nav>
     <header>
@@ -33,5 +41,11 @@ nav {
   -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  color: black;
 }
 </style>

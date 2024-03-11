@@ -4,8 +4,8 @@
         <div class="modal-content">
             <span><b>For card: </b>{{ card.name }}</span>
             <p>Choose an action below.</p>
-            <ClaimButton v-if="card.canActive" />
-            <VetoButton v-if="card.canVeto" />
+            <ClaimButton :card="card" v-if="card.canActive" />
+            <VetoButton :card="card" v-if="card.canVeto" />
         </div>
     </div>
 </template>
