@@ -1,9 +1,11 @@
 <script setup>
 import { RouterView } from 'vue-router'
 
-function handleModal(id) {
-    let modal = document.querySelector(`#${String(id)}`);
-    modal.classList.toggle("is-active")
+function handleNavbarModal() {
+    let burger = document.querySelector(`#burger`);
+    let menu = document.querySelector('.navbar-menu')
+    burger.classList.toggle("is-active");
+    menu.classList.toggle("is-active");
 }
 </script>
 
@@ -12,7 +14,7 @@ function handleModal(id) {
     <nav class="navbar">
       <div class="navbar-brand">
         <router-link class="navbar-item link" to="/"><b>Jet Lag: In Toronto</b></router-link>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <a role="button" class="navbar-burger" id="burger" aria-label="menu" aria-expanded="false" @click="handleNavbarModal()">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -20,7 +22,12 @@ function handleModal(id) {
       </div>
       <div class="navbar-menu">
         <div class="navbar-start">
-          <router-link class="link navbar-item" to="/shop">Shop</router-link>
+          <span class="navbar-item">
+            <p><b>Tokens:</b> 5</p>
+          </span>
+          <span class="navbar-item">
+            <p><b>Number of Districts:</b> 5</p>
+          </span>
         </div>
       </div>
     </nav>

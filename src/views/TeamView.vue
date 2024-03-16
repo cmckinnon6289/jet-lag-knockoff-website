@@ -1,8 +1,8 @@
 <template>
     <div class="views">
-        <div class="team-view">
+        <div class="shop-view">
             <div class="title-bar">
-                <b>Team View</b>
+                <b>Shop View</b>
             </div>
             <div class="info">
                 <b>Hello.</b>
@@ -37,19 +37,24 @@ onMounted(() => {
 </script>
 
 <style>
+:root {
+    --outer-margin: 1%;
+    --inner-margin: 1%;
+}
+
 .views {
     margin: 1%;
     display: flex;
     flex-wrap: wrap;
 }
 
-.team-view,
+.shop-view,
 .card-view {
-    width: 48%; /* 50% - 1% views margin - 1% margin in each view */
+    width: calc(50% - var(--outer-margin) - var(--inner-margin)); /* 50% - 1% views margin - 1% margin in each view */
     box-sizing: border-box; /* Include padding and border in the width calculation */
-    margin: 1%;
+    margin: var(--outer-margin);
     .info {
-        padding: 1%;
+        padding: var(--inner-margin);
     };
     .title-bar {
         padding: 1%;
@@ -58,7 +63,7 @@ onMounted(() => {
     };
 }
 
-.team-view {
+.shop-view {
     background-color: lightcoral;
 }
 
@@ -71,4 +76,18 @@ onMounted(() => {
     flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    .shop-view, .card-view {
+        width: 100%;
+        flex-wrap: wrap;
+        margin-bottom: 16px;
+    }
+    .card-view {
+        .card {
+            margin: auto;
+            margin-bottom: var(--inner-margin);
+            margin-top: var(--inner-margin);
+        }
+    }
+}
 </style>
